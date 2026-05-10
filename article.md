@@ -1,25 +1,21 @@
+---
+author: "Kyle Jones"
+date_published: "March 29, 2024"
+date_exported_from_medium: "November 10, 2025"
+canonical_link: "https://medium.com/@kyle-t-jones/monte-carlo-simulation-using-black-scholes-for-stock-price-in-python-808574935473"
+---
+
 # Monte Carlo simulation using Black-Scholes for stock price in Python
 
-This project continues another project I did looking at the price of
-Telsa stock. Please note, this is not financial advice, just a fun...
+This project continues another project I did looking at the price of Telsa stock. Please note, this is not financial advice, just a fun...
 
-::::::::### Monte Carlo simulation using Black-Scholes for stock price in Python 
+### Monte Carlo simulation using Black-Scholes for stock price in Python 
 
-This project continues another project I did looking at the price of
-Telsa stock. Please note, this is not financial advice, just a fun
-project.
+This project continues another project I did looking at the price of Telsa stock. Please note, this is not financial advice, just a fun project.
 
-[**Time Series Forecasting for Stock Prediction in Python**\
-*This project introduces common techniques to manipulate time series and
-make predictions using an example of a
-stock...*python.plainenglish.io](https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb "https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb")[](https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb)
-*I updated the code and graphs on 2024--12--23 to fix an error spotted
-by* [*Amr Abdeldayem*](https://medium.com/u/69ea4839cf7f)*.
-Thanks!*
+[**Time Series Forecasting for Stock Prediction in Python**\ *This project introduces common techniques to manipulate time series and make predictions using an example of a stock...*python.plainenglish.io](https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb "https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb")[](https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb) *I updated the code and graphs on 2024--12--23 to fix an error spotted by* [*Amr Abdeldayem*](https://medium.com/u/69ea4839cf7f)*. Thanks!*
 
-I wanted to combine this approach with the [Black-Scholes
-algo](https://www.investopedia.com/terms/b/blackscholes.asp) and then use Monte Carlo simulations to
-predict the value of the Tesla stock in \~90 days.
+I wanted to combine this approach with the [Black-Scholes algo](https://www.investopedia.com/terms/b/blackscholes.asp) and then use Monte Carlo simulations to predict the value of the Tesla stock in \~90 days.
 
 Like before, I am pulling the data from YFinance because it is easy.
 
@@ -51,35 +47,20 @@ plt.show()
 ```
 
 
-We pull in the values and plot the data. This is a nice looking time
-series! You can see lots of volatility in the stock which makes it
-interesting to imagine what will happen next?
+We pull in the values and plot the data. This is a nice looking time series! You can see lots of volatility in the stock which makes it interesting to imagine what will happen next?
 
 #### Monte Carlo Simulation
-We need to set two parameters to run the simulation. One is the number
-of days we will predict into the future and the other is how many times
-we will simulate the future. For this project, I set it future date to
-be the beginning of the next financial quarter.
+We need to set two parameters to run the simulation. One is the number of days we will predict into the future and the other is how many times we will simulate the future. For this project, I set it future date to be the beginning of the next financial quarter.
 
-I like to do 1000 simulations. You can do more but there are diminishing
-returns as you do more simulations (statistics).
+I like to do 1000 simulations. You can do more but there are diminishing returns as you do more simulations (statistics).
 
-In this code, I use the historic variability of the stock as a
-constraint for how much the value of the stock can fluctuate from day to
-day. The python goes through and takes the pervious value to predict the
-current value. The prediction is based on the Black Scholes method and
-includes historic volatility plus some randomness.
+In this code, I use the historic variability of the stock as a constraint for how much the value of the stock can fluctuate from day to day. The python goes through and takes the pervious value to predict the current value. The prediction is based on the Black Scholes method and includes historic volatility plus some randomness.
 
 ### Geometric Brownian Motion
-I assume the log of the returns (percent changes) are normally
-distributed and that the market is efficient. The formula for the change
-in price between periods is the price of the stock in t_0 multiplied by
-the expected drift (average change in price) plus an exogenous shock.
+I assume the log of the returns (percent changes) are normally distributed and that the market is efficient. The formula for the change in price between periods is the price of the stock in t_0 multiplied by the expected drift (average change in price) plus an exogenous shock.
 
 
-<figcaption>Formula for Geometric Brownian Motion. Nerd Alert! You don’t
-have to actually use this because the code is below.
-You’re welcome!</figcaption>
+<figcaption>Formula for Geometric Brownian Motion. Nerd Alert! You don’t have to actually use this because the code is below. You’re welcome!</figcaption>
 
 
 ```python
@@ -160,20 +141,11 @@ def monte_carlo(pred_end_date, df, iterations=1000, plot=True):
 
 
 #### Histogram of final predicted values
-The simulated future paths graph is neat but very hard to read. I'm
-interested in what the price will be on July 1, 2024. So I want to look
-at the predicted values for that day only and see the distribution of
-those values.
+The simulated future paths graph is neat but very hard to read. I'm interested in what the price will be on July 1, 2024. So I want to look at the predicted values for that day only and see the distribution of those values.
 
-I can do this with a histogram. The code is based on another project I
-did for histograms.
+I can do this with a histogram. The code is based on another project I did for histograms.
 
-[**Visualizing the normal distribution with Python and Matplotlib**\
-*This is a simple python project to show how to simulate a normal
-distribution and plot it using
-Matplotlib.*medium.com](https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8 "https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8")[](https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8)
-I assume the values are normally distributed because of the randomness
-in the Monte Carlo process.
+[**Visualizing the normal distribution with Python and Matplotlib**\ *This is a simple python project to show how to simulate a normal distribution and plot it using Matplotlib.*medium.com](https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8 "https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8")[](https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8) I assume the values are normally distributed because of the randomness in the Monte Carlo process.
 
 ```python
 def plot_norm_hist(s, vline=True, title=True):
@@ -229,27 +201,13 @@ except ValueError as e:
 ```
 
 
-Now I have a very simple chart and some useful info. The predicted mean
-value for the stock is \$576.33 for July 1, 2025.
+Now I have a very simple chart and some useful info. The predicted mean value for the stock is \$576.33 for July 1, 2025.
 
-So this analysis suggests that the future price will very likely be more
-than the current price. In fact, this approach predicts the value of
-Tesla will be higher than the current price in 62.8% of the simulations.
+So this analysis suggests that the future price will very likely be more than the current price. In fact, this approach predicts the value of Tesla will be higher than the current price in 62.8% of the simulations.
 
 Based on this, would you buy the stock today?
 
 ### Related Stories
-- [[Time Series Forecasting for Stock Prediction in
-  Python](https://medium.com/python-in-plain-english/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb)]
-- [[Visualizing the normal distribution with Python and
-  Matplotlib](https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8)]
-- [[Building a Recommendation Engine using Association Rules for item to
-  item similarity in
-  R](https://medium.com/@kylejones_47003/association-rules-for-item-to-time-personalization-in-r-9d6de7d6db8e)]
-::::::::::::::::By [Kyle Jones](https://medium.com/@kyle-t-jones) on
-[March 29, 2024](https://medium.com/p/808574935473).
-
-[Canonical
-link](https://medium.com/@kyle-t-jones/monte-carlo-simulation-using-black-scholes-for-stock-price-in-python-808574935473)
-
-Exported from [Medium](https://medium.com) on November 10, 2025.
+- [[Time Series Forecasting for Stock Prediction in Python](https://medium.com/python-in-plain-english/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb)]
+- [[Visualizing the normal distribution with Python and Matplotlib](https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8)]
+- [[Building a Recommendation Engine using Association Rules for item to item similarity in R](https://medium.com/@kylejones_47003/association-rules-for-item-to-time-personalization-in-r-9d6de7d6db8e)]
