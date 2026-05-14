@@ -13,7 +13,7 @@ This project continues another project I did looking at the price of Telsa stock
 
 This project continues another project I did looking at the price of Telsa stock. Please note, this is not financial advice, just a fun project.
 
-[**Time Series Forecasting for Stock Prediction in Python**\ *This project introduces common techniques to manipulate time series and make predictions using an example of a stock...*python.plainenglish.io](https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb "https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb")[](https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb) *I updated the code and graphs on 2024--12--23 to fix an error spotted by* [*Amr Abdeldayem*](https://medium.com/u/69ea4839cf7f)*. Thanks!*
+[Time Series Forecasting for Stock Prediction in Python\ *This project introduces common techniques to manipulate time series and make predictions using an example of a stock...*python.plainenglish.io](https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb "https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb")[](https://python.plainenglish.io/time-series-forecasting-for-stock-prediction-in-python-710a88b7ccbb) *I updated the code and graphs on 2024--12--23 to fix an error spotted by* [*Amr Abdeldayem*](https://medium.com/u/69ea4839cf7f)*. Thanks!*
 
 I wanted to combine this approach with the [Black-Scholes algo](https://www.investopedia.com/terms/b/blackscholes.asp) and then use Monte Carlo simulations to predict the value of the Tesla stock in \~90 days.
 
@@ -145,7 +145,7 @@ The simulated future paths graph is neat but very hard to read. I'm interested i
 
 I can do this with a histogram. The code is based on another project I did for histograms.
 
-[**Visualizing the normal distribution with Python and Matplotlib**\ *This is a simple python project to show how to simulate a normal distribution and plot it using Matplotlib.*medium.com](https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8 "https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8")[](https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8) I assume the values are normally distributed because of the randomness in the Monte Carlo process.
+[Visualizing the normal distribution with Python and Matplotlib\ *This is a simple python project to show how to simulate a normal distribution and plot it using Matplotlib.*medium.com](https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8 "https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8")[](https://medium.com/@kylejones_47003/visualizing-the-normal-distribution-with-python-and-matplotlib-c501e3c594f8) I assume the values are normally distributed because of the randomness in the Monte Carlo process.
 
 ```python
 def plot_norm_hist(s, vline=True, title=True):
