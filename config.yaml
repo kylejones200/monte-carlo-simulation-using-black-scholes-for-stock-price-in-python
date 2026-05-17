@@ -1,0 +1,28 @@
+logging:
+  level: INFO
+
+data:
+  source: csv
+  # yfinance symbol used to build data/aoil.csv (USO ≈ oil ETF proxy for article's AOIL index)
+  ticker: USO
+  display_ticker: USO
+  csv_path: data/aoil.csv
+  date_column: date
+  price_column: adjClose
+
+simulation:
+  forecast_end: "2020-06-20"
+  iterations: 1000
+  seed: 4373
+  use_weekdays_only: true
+
+output:
+  figures_dir: outputs/figures
+  results_path: outputs/results.json
+  save_figures: true
+  history_chart: price_history.png
+  paths_chart: simulated_paths.png
+  histogram_chart: terminal_distribution.png
+  figure_format: png
+  figure_dpi: 120
+  histogram_bins: 100

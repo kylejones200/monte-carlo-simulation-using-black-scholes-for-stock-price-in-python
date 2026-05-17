@@ -1,0 +1,11 @@
+# Copy to config.local.yaml (gitignored) for machine-specific overrides.
+
+# data:
+#   source: yfinance
+#   ticker: TSLA
+#   display_ticker: TSLA
+#   period: 5y
+#
+# simulation:
+#   forecast_end: "2025-07-01"
+#   use_weekdays_only: false
