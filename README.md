@@ -66,10 +66,10 @@ uv run ruff check src tests scripts
 
 CI runs ruff and pytest on push/PR (see `.github/workflows/ci.yml`).
 
+## Disclaimer
+
+Educational/demo code only. Not financial, safety, or engineering advice. Use at your own risk. Verify results independently before any production or operational use.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
-
-## Notebook
-
-The exploratory notebook in `notebooks/monte_carlo_option_pricing.ipynb` calls the same `monte_carlo_bs` package as the CLI. Use the project venv kernel (`uv sync` then launch Jupyter from the repo root).
