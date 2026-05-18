@@ -31,7 +31,6 @@ def load_prices(
 ) -> tuple[pd.DataFrame, str]:
     """
     Load historical prices as a DataFrame indexed by date with a ``price`` column.
-
     Returns ``(df, ticker)``.
     """
     if cfg is None:
@@ -43,7 +42,6 @@ def load_prices(
     data_cfg = cfg.get("data") or {}
     source = str(data_cfg.get("source", "csv")).lower()
     ticker = str(data_cfg.get("display_ticker") or data_cfg.get("ticker", "USO"))
-
     if source == "csv":
         csv_rel = data_cfg.get("csv_path", "data/aoil.csv")
         csv_path = resolve_project_path(csv_rel)
@@ -67,8 +65,7 @@ def load_prices(
             import yfinance as yf
         except ImportError as exc:
             raise ImportError(
-                "yfinance is required for data.source=yfinance. "
-                "Install with: uv sync --extra fetch"
+                "yfinance is required for data.source=yfinance. Install with: uv sync --extra fetch"
             ) from exc
 
         period = data_cfg.get("period", "5y")

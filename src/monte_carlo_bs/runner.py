@@ -24,15 +24,12 @@ def run(config_path: Path | str | None = None) -> dict[str, Any]:
     path = Path(config_path) if config_path else DEFAULT_CONFIG_PATH
     cfg = load_config(path)
     configure_logging(cfg)
-
     df, ticker = load_prices(path, cfg)
     pred_end = parse_forecast_end(cfg, df.index.max())
-
     sim = cfg.get("simulation") or {}
     iterations = int(sim.get("iterations", 1000))
     seed = sim.get("seed")
     use_weekdays = bool(sim.get("use_weekdays_only", False))
-
     forecast_df, final_prices, _ = monte_carlo_gbm(
         df["price"],
         pred_end,
@@ -40,7 +37,6 @@ def run(config_path: Path | str | None = None) -> dict[str, Any]:
         seed=int(seed) if seed is not None else None,
         use_weekdays_only=use_weekdays,
     )
-
     summary = summarize_terminal(final_prices)
     spot = float(df["price"].iloc[-1])
     summary["spot"] = spot
@@ -48,24 +44,18 @@ def run(config_path: Path | str | None = None) -> dict[str, Any]:
     summary["forecast_end"] = pred_end.isoformat()
     summary["ticker"] = ticker
     summary["iterations"] = iterations
-
     logger.info(
         "Terminal mean=%.2f std=%.2f P(price > spot)=%.1f%%",
         summary["mean"],
         summary["std"],
         100 * summary["p_above_spot"],
     )
-
     out_cfg = cfg.get("output") or {}
     figures: dict[str, Path] = {}
     if out_cfg.get("save_figures", True):
-        figures = run_plots(
-            df, forecast_df, final_prices, ticker, pred_end, iterations, cfg
-        )
+        figures = run_plots(df, forecast_df, final_prices, ticker, pred_end, iterations, cfg)
 
-    results_path = resolve_project_path(
-        out_cfg.get("results_path", "outputs/results.json")
-    )
+    results_path = resolve_project_path(out_cfg.get("results_path", "outputs/results.json"))
     results_path.parent.mkdir(parents=True, exist_ok=True)
     data_cfg = cfg.get("data") or {}
     payload = {
@@ -76,7 +66,6 @@ def run(config_path: Path | str | None = None) -> dict[str, Any]:
     }
     results_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     logger.info("Wrote %s", results_path)
-
     return {
         "forecast_df": forecast_df,
         "final_prices": final_prices,
@@ -87,9 +76,7 @@ def run(config_path: Path | str | None = None) -> dict[str, Any]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Monte Carlo GBM price simulation (config-driven)"
-    )
+    parser = argparse.ArgumentParser(description="Monte Carlo GBM price simulation (config-driven)")
     parser.add_argument(
         "--config",
         type=Path,

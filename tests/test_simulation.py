@@ -26,9 +26,7 @@ def test_business_forecast_dates(prices: pd.Series) -> None:
 
 def test_monte_carlo_shapes(prices: pd.Series) -> None:
     end = datetime(2020, 7, 1)
-    forecast_df, final_prices, forecast_dates = monte_carlo_gbm(
-        prices, end, iterations=50, seed=1
-    )
+    forecast_df, final_prices, forecast_dates = monte_carlo_gbm(prices, end, iterations=50, seed=1)
     assert len(forecast_dates) == len(forecast_df)
     assert forecast_df.shape[1] == 50
     assert final_prices.shape == (50,)

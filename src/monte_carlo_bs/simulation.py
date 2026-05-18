@@ -17,9 +17,7 @@ def business_forecast_dates(
     end = pd.Timestamp(pred_end_date)
     dates = pd.date_range(start=start, end=end, freq="B")
     if dates.empty:
-        raise ValueError(
-            f"No business days between {last_date.date()} and {pred_end_date.date()}"
-        )
+        raise ValueError(f"No business days between {last_date.date()} and {pred_end_date.date()}")
     return dates
 
 
@@ -33,7 +31,6 @@ def monte_carlo_gbm(
 ) -> tuple[pd.DataFrame, np.ndarray, pd.DatetimeIndex]:
     """
     Simulate future price paths with geometric Brownian motion (log-normal returns).
-
     Parameters
     ----------
     prices
@@ -75,16 +72,11 @@ def monte_carlo_gbm(
 
     intervals = len(forecast_dates)
     log_returns = np.log(1 + prices.pct_change().dropna())
-
     u = float(log_returns.mean())
     var = float(log_returns.var())
     drift = u - 0.5 * var
     stdev = float(log_returns.std())
-
-    daily_returns = np.exp(
-        drift + stdev * norm.ppf(np.random.rand(intervals, iterations))
-    )
-
+    daily_returns = np.exp(drift + stdev * norm.ppf(np.random.rand(intervals, iterations)))
     s0 = float(prices.iloc[-1])
     price_list = np.zeros((intervals, iterations))
     price_list[0] = s0

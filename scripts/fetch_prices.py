@@ -61,7 +61,6 @@ def main() -> None:
         help="Output CSV path",
     )
     args = parser.parse_args()
-
     df = fetch_yfinance(args.ticker, start=args.start, end=args.end)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(args.output, index=False)

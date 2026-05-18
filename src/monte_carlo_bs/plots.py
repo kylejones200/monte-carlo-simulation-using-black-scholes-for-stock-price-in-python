@@ -38,7 +38,6 @@ def plot_price_history(
     out_cfg = cfg.get("output") or {}
     filename = out_cfg.get("history_chart", "price_history.png")
     out_path = figures_dir / filename
-
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(df.index, df["price"], color="#333333", linewidth=0.8)
     ax.set_title(f"Price of {ticker} from {df.index.min().date()} to {df.index.max().date()}")
@@ -63,7 +62,6 @@ def plot_simulated_paths(
     out_cfg = cfg.get("output") or {}
     filename = out_cfg.get("paths_chart", "simulated_paths.png")
     out_path = figures_dir / filename
-
     fig, ax = plt.subplots(figsize=(10, 6))
     for col in forecast_df.columns:
         ax.plot(
@@ -96,12 +94,10 @@ def plot_terminal_histogram(
     out_cfg = cfg.get("output") or {}
     filename = out_cfg.get("histogram_chart", "terminal_distribution.png")
     out_path = figures_dir / filename
-
     x = np.asarray(final_prices, dtype=float)
     sigma = float(np.std(x))
     mu = float(np.mean(x))
     num_bins = int((cfg.get("output") or {}).get("histogram_bins", 100))
-
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.hist(x, num_bins, density=True, alpha=0.75, color="#4a6fa5")
     bins = np.linspace(x.min(), x.max(), num_bins + 1)
@@ -135,7 +131,5 @@ def run_plots(
     return {
         "history": plot_price_history(df, ticker, cfg),
         "paths": plot_simulated_paths(forecast_df, ticker, iterations, cfg),
-        "histogram": plot_terminal_histogram(
-            final_prices, spot, ticker, pred_end_date, cfg
-        ),
+        "histogram": plot_terminal_histogram(final_prices, spot, ticker, pred_end_date, cfg),
     }

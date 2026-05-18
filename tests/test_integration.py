@@ -37,11 +37,9 @@ def test_run_pipeline_writes_relative_paths(quick_config: Path) -> None:
     result = run(quick_config)
     results_path = result["results_path"]
     assert results_path.is_file()
-
     payload = json.loads(results_path.read_text(encoding="utf-8"))
     assert payload["summary"]["iterations"] == 25
     assert payload["data_symbol"] == "USO"
-
     for rel in payload["figures"].values():
         assert not Path(rel).is_absolute()
         assert (PROJECT_ROOT / rel).is_file()
