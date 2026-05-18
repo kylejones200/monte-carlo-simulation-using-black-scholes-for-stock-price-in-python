@@ -13,7 +13,7 @@ data:
 simulation:
   forecast_end: "2020-06-20"
   iterations: 1000
-  seed: 4373
+  seed: 42
   use_weekdays_only: true
 
 output:
