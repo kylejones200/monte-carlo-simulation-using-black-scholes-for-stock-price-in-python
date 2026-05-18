@@ -5,6 +5,14 @@ Medium: [Monte Carlo simulation using Black-Scholes for stock price in Python](h
 
 Geometric Brownian motion Monte Carlo paths for forecasting terminal price distributions. Companion code for the article (`article.md`).
 
+## Business context
+
+This project continues another project I did looking at the price of Telsa stock. Please note, this is not financial advice, just a fun...
+
+This project continues another project I did looking at the price of Telsa stock. Please note, this is not financial advice, just a fun project.
+
+I wanted to combine this approach with the [Black-Scholes algo](https://www.investopedia.com/terms/b/blackscholes.asp) and then use Monte Carlo simulations to predict the value of the Tesla stock in ~90 days.
+
 ## Quick start
 
 Requires [uv](https://docs.astral.sh/uv/).
