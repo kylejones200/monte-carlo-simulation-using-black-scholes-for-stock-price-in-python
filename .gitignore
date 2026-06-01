@@ -38,3 +38,4 @@ node_modules/
 # pytest
 .pytest_cache/
 .ruff_cache/
+rust/target/

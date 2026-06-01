@@ -41,3 +41,10 @@ src = ["src", "tests", "scripts"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
+
+# Optional Rust extension — build with:
+#   pip install maturin && maturin develop --release -m rust/py/Cargo.toml
+[tool.maturin]
+manifest-path = "rust/py/Cargo.toml"
+module-name = "monte_carlo_simulation_using_black_scholes_for_stock_price_in_python_rs"
+

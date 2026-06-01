@@ -1,0 +1,13 @@
+[package]
+name = "monte_carlo_simulation_using_black_scholes_for_stock_price_in_python_bench"
+description = "Standalone Rust benchmark (no Python)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "bench"
+path = "src/main.rs"
+
+[dependencies]
+monte_carlo_simulation_using_black_scholes_for_stock_price_in_python_core = { path = "../core" }

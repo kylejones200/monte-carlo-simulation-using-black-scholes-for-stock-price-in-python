@@ -1,0 +1,9 @@
+[package]
+name = "monte_carlo_simulation_using_black_scholes_for_stock_price_in_python_core"
+description = "GBM terminal price simulation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+path = "src/lib.rs"

@@ -1,0 +1,15 @@
+[package]
+name = "monte_carlo_simulation_using_black_scholes_for_stock_price_in_python_rs"
+description = "Python bindings (PyO3) for monte_carlo_simulation_using_black_scholes_for_stock_price_in_python_core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "monte_carlo_simulation_using_black_scholes_for_stock_price_in_python_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+monte_carlo_simulation_using_black_scholes_for_stock_price_in_python_core = { path = "../core" }
+pyo3 = { version = "0.28", features = ["extension-module"] }
+numpy = "0.28"
